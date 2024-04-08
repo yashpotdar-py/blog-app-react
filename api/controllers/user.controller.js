@@ -13,6 +13,8 @@ export const updateUser = async (req, res, next) => {
   if (req.body.password) {
     if (req.body.password.length < 6) {
       return next(errorHandler(400, "Password must be at least 6 characters."));
+    } else if (req.body.password != req.body.confirmpassword) {
+      return next(errorHandler(400, "Passwords don't match."));
     } else {
       req.body.password = brcyptjs.hashSync(req.body.password, 10);
     }

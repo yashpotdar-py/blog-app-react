@@ -34,6 +34,7 @@ export default function SignUp() {
       });
       const data = await res.json();
       if (data.success === false) {
+        setLoading(false)
         return setErrorMessage(data.message);
       }
       setLoading(false);
@@ -88,6 +89,16 @@ export default function SignUp() {
                 type="password"
                 placeholder="Password"
                 id="password"
+                hidden
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <Label value="Confirm Password" />
+              <TextInput
+                type="password"
+                placeholder="Confirm Password"
+                id="confirmPassword"
                 hidden
                 onChange={handleChange}
               />

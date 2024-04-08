@@ -230,12 +230,13 @@ export default function DashProfile() {
           defaultValue={""}
           onChange={handleChange}
         />
-        {/* <TextInput
+        <TextInput
           type="password"
           id="confirmpassword"
           placeholder={"confirm password"}
           defaultValue={""}
-        /> */}
+          onChange={handleChange}
+        />
         <Button
           type="submit"
           className=""

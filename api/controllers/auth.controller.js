@@ -4,7 +4,7 @@ import { errorHandler } from "../utils/error.js";
 import jwt from "jsonwebtoken";
 
 export const signup = async (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, confirmPassword } = req.body;
 
   if (
     !username ||
@@ -15,6 +15,14 @@ export const signup = async (req, res, next) => {
     password === ""
   ) {
     next(errorHandler(400, "All fields are required"));
+  }
+
+  if (password.length < 6 || password.includes(" ")) {
+    next(errorHandler(400, "Enter a valid password. More than 6 characters"));
+  }
+
+  if (password != confirmPassword) {
+    next(errorHandler(400, "Passwords don't match."));
   }
 
   const hashedPassword = bcryptjs.hashSync(password, 10);
