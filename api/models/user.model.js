@@ -20,6 +20,14 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "https://source.unsplash.com/random/200x200",
     },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
+    isAuthor: {
+      type: Boolean,
+      default: false,
+    }
   },
   { timestamps: true }
 );
