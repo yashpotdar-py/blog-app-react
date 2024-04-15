@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema(
     isAuthor: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   { timestamps: true }
 );
