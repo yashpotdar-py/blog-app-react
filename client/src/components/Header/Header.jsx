@@ -75,6 +75,14 @@ export default function Header() {
               <Dropdown.Item>Dashboard</Dropdown.Item>
             </Link>
             <Dropdown.Divider />
+            {currentUser.isAuthor ? (
+              <React.Fragment>
+                <Link to={"/create-post"}>
+                  <Dropdown.Item>Create Post</Dropdown.Item>
+                </Link>
+                <Dropdown.Divider />
+              </React.Fragment>
+            ) : null}
             <Dropdown.Item onClick={handleSignOut}>Sign Out</Dropdown.Item>
           </Dropdown>
         ) : (
