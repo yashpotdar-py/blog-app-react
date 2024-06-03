@@ -2,7 +2,7 @@ import { Button, Modal, Table } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function DashPosts() {
   const { currentUser } = useSelector((state) => state.user);
@@ -143,7 +143,15 @@ export default function DashPosts() {
           )}
         </>
       ) : (
-        <p>You have no posts yet</p>
+        <p>
+          You have no posts yet.{" "}
+          <Link
+            className="text-teal-500 hover:underline"
+            to="/create-post"
+          >
+            Create One
+          </Link>
+        </p>
       )}
       <Modal
         show={showModal}
